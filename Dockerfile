@@ -1,9 +1,5 @@
-#!/bin/sh
+FROM appleboy/drone-scp:1.6.2-linux-amd64
 
-set -eu
-
-[ -n "$INPUT_STRIP_COMPONENTS" ] && export INPUT_STRIP_COMPONENTS=$((INPUT_STRIP_COMPONENTS + 0))
-
-echo $*
-
-sh -c "/bin/drone-scp $*"
+ADD entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
