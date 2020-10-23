@@ -3,7 +3,7 @@
 set -eu
 
 INPUT_STRIP_COMPONENTS=0
-INPUT_HOST=123
+export INPUT_HOST=123
 
 
 
