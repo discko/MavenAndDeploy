@@ -13,6 +13,7 @@ runs:
   using: "composite"
   steps:
     - name: first step
+      shell: bash
       run: |
         echo "inputs1:"$INPUT_JAVA_VERSION
         echo "inputs2:"${{inputs.java-version"}}
@@ -24,6 +25,7 @@ runs:
 
     - name: second step
       id: MainStep
+      shell: bash
       run: |
         pwd
         ls
