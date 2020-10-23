@@ -2,8 +2,10 @@
 
 set -eu
 
+echo $*
+
 [ -n "$INPUT_STRIP_COMPONENTS" ] && export INPUT_STRIP_COMPONENTS=$((INPUT_STRIP_COMPONENTS + 0))
 
-echo $*
+
 
 sh -c "/bin/drone-scp $*"
