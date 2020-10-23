@@ -10,23 +10,6 @@ outputs:
     description: 'Process result'
     value: 
 runs:
-  using: "composite"
-  steps:
-    - name: first step
-      shell: bash
-      run: |
-        echo "inputs1:"$INPUT_JAVA_VERSION
-        echo "inputs2:"${{inputs.java-version"}}
-        pwd
-        ls
-        
-    - name: checkout
-      uses: actions/checkout@master
-
-    - name: second step
-      id: MainStep
-      shell: bash
-      run: |
-        pwd
-        ls
-        echo "::Set-output name=out::"process result"
+  using: "docker"
+  image: "Dockerfile"
+    
