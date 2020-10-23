@@ -2,6 +2,73 @@ name: 'Maven Package and Deploy Remote'
 description: 'package the java Maven project and deploy to remote server'
 author: 'discko'
 inputs: 
+  host:
+    description: 'scp remote host'
+  port:
+    description: 'scp remote port'
+    default: 22
+  username:
+    description: 'scp username'
+  password:
+    description: 'scp password'
+  timeout:
+    description: 'timeout for ssh to remote host'
+    default: "30s"
+  command_timeout:
+    description: 'timeout for scp command'
+    default: "10m"
+  key:
+    description: 'content of ssh private key. ex raw content of ~/.ssh/id_rsa'
+  key_path:
+    description: 'path of ssh private key'
+  passphrase:
+    description: 'ssh key passphrase'
+  fingerprint:
+    description: 'fingerprint SHA256 of the host public key, default is to skip verification'
+  use_insecure_cipher:
+    description: 'include more ciphers with use_insecure_cipher'
+    default: false
+  target:
+    description: 'target path on the server'
+  source:
+    description: 'scp file list'
+  rm:
+    description: 'remove target folder before upload data'
+    default: false
+  debug:
+    description: 'enable debug message'
+    default: false
+  strip_components:
+    description: 'remove the specified number of leading path elements'
+    default: 0
+  overwrite:
+    description: 'use `--overwrite` flag with tar'
+    default: false
+  tar_tmp_path:
+    description: 'temporary path for tar file on the dest host'
+  proxy_host:
+    description: 'ssh proxy remote host'
+  proxy_port:
+    description: 'ssh proxy remote port'
+    default: 22
+  proxy_username:
+    description: 'ssh proxy username'
+  proxy_password:
+    description: 'ssh proxy password'
+  proxy_passphrase:
+    description: 'ssh proxy key passphrase'
+  proxy_timeout:
+    description: 'timeout for ssh to proxy host'
+    default: "30s"
+  proxy_key:
+    description: 'content of ssh proxy private key. ex raw content of ~/.ssh/id_rsa'
+  proxy_key_path:
+    description: 'path of ssh proxy private key'
+  proxy_fingerprint:
+    description: 'fingerprint SHA256 of the host public key, default is to skip verification'
+  proxy_use_insecure_cipher:
+    description: 'include more ciphers with use_insecure_cipher'
+    default: false
   java-version:
     description: 'The Java version to make available on the path. Takes a whole or semver Java version, or 1.x syntax (e.g. 1.8 => Java 8.x). Early access versions can be specified in the form of e.g. 14-ea, 14.0.0-ea, or 14.0.0-ea.28'
     require: true
